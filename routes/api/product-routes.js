@@ -14,7 +14,7 @@ const products= await Product.findAll({include:[Category,Tag]});
 router.get('/:id', async (req, res) => {
   try {
     const product = await Product.findByPk({
-    include: [Tag]
+    include: [Tag,Category]
     });
   if (!product){
     res.status(404).json({message: 'No Product found with this id!'});
